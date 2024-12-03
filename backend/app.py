@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 from werkzeug.security import generate_password_hash, check_password_hash  # Haszowanie haseł
@@ -26,6 +27,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Ustal tajny klucz dla JWT
 db = SQLAlchemy(app)
 jwt = JWTManager(app)  # Inicjalizacja JWT
+migrate = Migrate(app, db)
 
 
 # Model użytkownika
@@ -104,7 +106,6 @@ def register():
 
 # Endpoint do pobierania użytkowników (wymaga tokenu)
 @app.route('/users', methods=['GET'])
-@jwt_required()  # Wymaga autentykacji JWT
 def get_users():
     users = User.query.all()
     return jsonify([{'id': user.id, 'username': user.username, 'email': user.email} for user in users])
