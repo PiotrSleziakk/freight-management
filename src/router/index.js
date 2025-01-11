@@ -4,7 +4,10 @@ import store from '../store' // Importujemy store z Vuex
 // Importujemy komponenty stron
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
-import Register from '../views/Register.vue' // Dodajemy import Register.vue
+import Register from '../views/Register.vue'
+import ShipmentOrders from '../views/ShipmentOrders.vue'
+import AddShipmentOrder from '../views/AddShipmentOrder.vue'
+import EditShipmentOrder from '../views/EditShipmentOrder.vue'
 
 const routes = [
   {
@@ -28,6 +31,21 @@ const routes = [
     path: '/register', // Dodajemy trasę do rejestracji
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/shipmentOrder',
+    name: 'ShipmentOrders',
+    component: ShipmentOrders
+  },
+  {
+    path: '/shipmentOrder/add',
+    name: 'AddShipmentOrder',
+    component: AddShipmentOrder
+  },
+  {
+    path: '/shipmentOrder/edit/:id',
+    name: 'EditShipmentOrder',
+    component: EditShipmentOrder
   }
 ]
 

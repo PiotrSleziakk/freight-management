@@ -4,6 +4,9 @@ export default {
     logout () {
       this.$store.dispatch('logout')
       this.$router.push('/login') // Po wylogowaniu przekierowanie na stronę logowania
+    },
+    goToOrders () {
+      this.$router.push('/shipmentOrder') // Przejście do strony zleceń
     }
   }
 }
@@ -14,6 +17,7 @@ export default {
     <h2>Welcome to Freight Management</h2>
     <p>Only logged-in users can access this page.</p>
     <button @click="logout">Logout</button>
+    <button @click="goToOrders">Przejdź do zleceń</button> <!-- Dodany przycisk -->
   </div>
 </template>
 
@@ -28,5 +32,6 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
+  margin: 5px; /* Dodano odstęp między przyciskami */
 }
 </style>
