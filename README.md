@@ -1,5 +1,8 @@
 # freight-management
 
+Freight management application.
+Made with Python, Vue.js, SQLAlchemy.
+
 ## Project setup
 ```
 npm install
